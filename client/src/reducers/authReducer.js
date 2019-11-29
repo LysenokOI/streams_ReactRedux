@@ -5,7 +5,7 @@ gapi.auth2.getAuthInstance().currentUser.get().getId()
 */
 let INITIAL_STATE = {
   isSignedIn: null,
-  userID: null
+  userId: null
 };
 
 export default (state = INITIAL_STATE, action) => {
