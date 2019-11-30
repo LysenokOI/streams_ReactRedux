@@ -5,6 +5,8 @@ import {
 } from "redux-form"; /* (228)
 Field - React component, reduxForm - connect function for 
 action creator and mapstate to props*/
+import { connect } from "react-redux"; //239
+import { createStream } from "../../actions"; //239
 
 class StreamCreate extends React.Component {
   //(234)
@@ -46,9 +48,11 @@ class StreamCreate extends React.Component {
     event.preventDefault();
   получим значения Field черех props formValues 
   {title: "sdgf", description: "tyhj"} */
-  onSubmit(formValues) {
-    console.log(formValues);
-  }
+  onSubmit = formValues => {
+    //console.log(formValues);
+    /* (240) make sure we get formValues as argument */
+    this.props.createStream(formValues);
+  };
 
   render() {
     //console.log(this.props); //(228)
@@ -91,7 +95,10 @@ const validate = formValues => {
   return errors;
 };
 
-export default reduxForm({
+/*(240) wire up form and action creator*/
+const formWrapped = reduxForm({
   form: "streamCreate",
   validate
 })(StreamCreate);
+
+export default connect(null, { createStream })(formWrapped);
