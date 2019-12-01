@@ -22,7 +22,7 @@ class GoogleAuth extends React.Component {
           this.setState({ isSignedIn: this.auth.isSignedIn.get() }); //calls only once when the component first mounts
           */
           this.onAuthChange(this.auth.isSignedIn.get());
-          console.log(this.auth.isSignedIn.get());
+          //console.log(this.auth.isSignedIn.get());
           // will return true or fale
           this.auth.isSignedIn.listen(this.onAuthChange); //(213) listen отслеживает сосотяние isSigned уже после инициализации
         });
@@ -36,7 +36,6 @@ class GoogleAuth extends React.Component {
     
   };*/
   onAuthChange = isSignedIn => {
-    console.log("auth change check");
     if (isSignedIn) {
       //(222) add user ID who signing in
       this.props.signIn(this.auth.currentUser.get().getId());
