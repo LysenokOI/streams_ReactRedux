@@ -33,7 +33,7 @@ export const createStream = formValues => async (dispatch, getState) => {
   console.log(response); //(241)
   /*(253) do some proggrammatic navigation to get the user back to the root 
   route. need to create plain Router and history before (256)*/
-  history.push("/"); // route to the list of streams
+  history.push("/"); // route to the list of streams /
 };
 
 //(242)
