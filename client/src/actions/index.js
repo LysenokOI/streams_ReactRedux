@@ -1,4 +1,5 @@
 import streams from "../apis/streams";
+import history from "../history";
 import {
   SIGN_IN,
   SIGN_OUT,
@@ -24,10 +25,15 @@ export let signOut = () => {
 };
 
 /*(239) receive values which inputed in forms as argument */
-export const createStream = formValues => async dispatch => {
-  let response = await streams.post("/streams", formValues);
+/*(250)add userId to formValues stream object */
+export const createStream = formValues => async (dispatch, getState) => {
+  const { userId } = getState().auth;
+  let response = await streams.post("/streams", { ...formValues, userId });
   dispatch({ type: CREATE_STREAM, payload: response.data }); // получим данные из json db (241)
   console.log(response); //(241)
+  /*(253) do some proggrammatic navigation to get the user back to the root 
+  route. need to create plain Router and history before (256)*/
+  history.push("/"); // route to the list of streams
 };
 
 //(242)

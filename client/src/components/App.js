@@ -1,16 +1,20 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Router, BrowserRouter, Route } from "react-router-dom"; // (256) add plain router
 import StreamCreate from "./streams/StreamCreate";
 import StreamDelete from "./streams/StreamDelete";
 import StreamEdit from "./streams/StreamEdit";
 import StreamList from "./streams/StreamList";
 import StreamShow from "./streams/StreamShow";
 import Header from "./Header";
+import history from "../history"; //(256)
 
 let App = () => {
   return (
     <div className="ui container">
-      <BrowserRouter>
+      <Router history={history}>
+        {" "}
+        {/* (256) replace BrowserRouter* with Router 
+      to dont create own history of BrowserRouter */}
         <div>
           <Header />
           <Route path="/" exact component={StreamList} />
@@ -19,7 +23,7 @@ let App = () => {
           <Route path="/streams/delete" component={StreamDelete} />
           <Route path="/streams/show" component={StreamShow} />
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 };
