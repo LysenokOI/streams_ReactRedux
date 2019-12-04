@@ -6,22 +6,10 @@
       "id": 1
     },
     {
-      "title": "My stream",
-      "description": "Created by me",
+      "title": "oleg",
+      "description": "js",
       "userId": "106982157042125269085",
       "id": 2
-    },
-    {
-      "title": "new",
-      "description": "request",
-      "userId": "106982157042125269085",
-      "id": 3
-    },
-    {
-      "title": "new",
-      "description": "stream",
-      "userId": "106982157042125269085",
-      "id": 4
     }
   ]
 }

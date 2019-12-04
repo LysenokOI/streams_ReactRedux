@@ -19,7 +19,9 @@ let App = () => {
           <Header />
           <Route path="/" exact component={StreamList} />
           <Route path="/streams/new" component={StreamCreate} />
-          <Route path="/streams/edit" component={StreamEdit} />
+          <Route path="/streams/edit/:id" component={StreamEdit} />{" "}
+          {/* (260) add :id, url based selection.
+           this is param value inside props.match*/}
           <Route path="/streams/delete" component={StreamDelete} />
           <Route path="/streams/show" component={StreamShow} />
         </div>
